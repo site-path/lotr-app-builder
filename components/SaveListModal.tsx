@@ -1,13 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-interface SaveListModalProps {
-  isOpen: boolean;
-  onClose: () => void;
-  onSave: (name: string) => void;
-  currentArmyName?: string | null;
-}
-
-const SaveListModal: React.FC<SaveListModalProps> = ({ isOpen, onClose, onSave, currentArmyName }) => {
+const SaveListModal = ({ isOpen, onClose, onSave, currentArmyName }) => {
   const [listName, setListName] = useState(currentArmyName || '');
 
   useEffect(() => {

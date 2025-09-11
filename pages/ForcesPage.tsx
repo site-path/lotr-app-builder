@@ -1,21 +1,17 @@
 import React, { useState, useMemo, useCallback, useEffect, useRef } from 'react';
 import { useParams } from 'react-router-dom';
-import { Army, ArmyAlignment, Unit, UnitOption, UnitType, ArmyItemGroup } from '../types';
-import { FORCES_OF_GOOD_DATA } from '../data/lotrData';
-import { FORCES_OF_EVIL_DATA } from '../data/lotrData';
-import UnitCard from '../components/UnitCard';
-import SelectedArmyPanel from '../components/SelectedArmyPanel';
-import UnitOptionsModal from '../components/UnitOptionsModal';
-import SelectedUnitDetailModal from '../components/SelectedUnitDetailModal';
-
-interface ForcesPageUrlParams extends Record<string, string | undefined> {
-  alignment: ArmyAlignmentValue;
-}
-type ArmyAlignmentValue = 'good' | 'evil';
+import { FORCES_OF_GOOD_DATA } from '../data/lotrData.js';
+import { FORCES_OF_EVIL_DATA } from '../data/lotrData.js';
+import UnitCard from '../components/UnitCard.js';
+import SelectedArmyPanel from '../components/SelectedArmyPanel.js';
+import UnitOptionsModal from '../components/UnitOptionsModal.js';
+import SelectedUnitDetailModal from '../components/SelectedUnitDetailModal.js';
+// Fix: Import enums from the types file to ensure strong typing and remove local definitions.
+import { ArmyAlignment, UnitType } from '../types.js';
 
 const ALL_FACTIONS_ID = '__ALL__';
 
-const unitTypeSortOrder: Record<UnitType, number> = {
+const unitTypeSortOrder = {
   [UnitType.HERO_OF_LEGEND]: 1,
   [UnitType.HERO_OF_VALOUR]: 2,
   [UnitType.HERO_OF_FORTITUDE]: 3,
@@ -30,13 +26,13 @@ const unitTypeSortOrder: Record<UnitType, number> = {
 const bowKeywords = ['bow', 'elf bow', 'longbow', 'short bow', 'orc bow', 'uruk-hai bow', 'crossbow', 'blowpipe'];
 const BOW_LIMIT_PERCENTAGE = 33;
 
-const generateItemGroupId = (unitId: string, options: UnitOption[]): string => {
+const generateItemGroupId = (unitId, options) => {
   const sortedOptionIds = options.map(opt => opt.id).sort().join(',');
   return `${unitId}-${sortedOptionIds}`;
 };
 
-const ForcesPage: React.FC = () => {
-  const { alignment: alignmentParam } = useParams<ForcesPageUrlParams>();
+const ForcesPage = () => {
+  const { alignment: alignmentParam } = useParams();
   
   const alignment = useMemo(() => {
     if (alignmentParam?.toLowerCase() === 'good') return ArmyAlignment.GOOD;
@@ -50,22 +46,22 @@ const ForcesPage: React.FC = () => {
     return [];
   }, [alignment]);
   
-  const [selectedArmyListId, setSelectedArmyListId] = useState<string | null>(
+  const [selectedArmyListId, setSelectedArmyListId] = useState(
     allPossibleArmies.length > 0 ? ALL_FACTIONS_ID : null
   );
   
-  const [searchTerm, setSearchTerm] = useState<string>('');
-  const [currentArmyBuild, setCurrentArmyBuild] = useState<ArmyItemGroup[]>([]);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [currentArmyBuild, setCurrentArmyBuild] = useState([]);
   const [isOptionsModalOpen, setIsOptionsModalOpen] = useState(false);
-  const [unitToConfigure, setUnitToConfigure] = useState<Unit | null>(null);
-  const [initialQuantityForModal, setInitialQuantityForModal] = useState<number>(0);
+  const [unitToConfigure, setUnitToConfigure] = useState(null);
+  const [initialQuantityForModal, setInitialQuantityForModal] = useState(0);
 
-  const [selectedUnitTypeFilter, setSelectedUnitTypeFilter] = useState<UnitType | 'All'>('All');
-  const [selectedKeywordFilters, setSelectedKeywordFilters] = useState<string[]>([]);
+  const [selectedUnitTypeFilter, setSelectedUnitTypeFilter] = useState('All');
+  const [selectedKeywordFilters, setSelectedKeywordFilters] = useState([]);
   const [isKeywordDropdownOpen, setIsKeywordDropdownOpen] = useState(false);
-  const keywordFilterRef = useRef<HTMLDivElement>(null);
+  const keywordFilterRef = useRef(null);
 
-  const [detailedUnitGroup, setDetailedUnitGroup] = useState<ArmyItemGroup | null>(null);
+  const [detailedUnitGroup, setDetailedUnitGroup] = useState(null);
   const [isDetailModalOpen, setIsDetailModalOpen] = useState(false);
 
   useEffect(() => {
@@ -77,8 +73,8 @@ const ForcesPage: React.FC = () => {
   }, [alignment, allPossibleArmies]);
 
   useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (keywordFilterRef.current && !keywordFilterRef.current.contains(event.target as Node)) {
+    const handleClickOutside = (event) => {
+      if (keywordFilterRef.current && !keywordFilterRef.current.contains(event.target)) {
         setIsKeywordDropdownOpen(false);
       }
     };
@@ -88,7 +84,7 @@ const ForcesPage: React.FC = () => {
     };
   }, []);
 
-  const handleArmyListChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+  const handleArmyListChange = (event) => {
     const newId = event.target.value || null;
     setSelectedArmyListId(newId);
     setSelectedUnitTypeFilter('All');
@@ -97,7 +93,7 @@ const ForcesPage: React.FC = () => {
   };
 
   const allKeywordsForSelectedArmy = useMemo(() => {
-    const keywordsSet = new Set<string>();
+    const keywordsSet = new Set();
     const armiesToConsider = selectedArmyListId === ALL_FACTIONS_ID 
       ? allPossibleArmies
       : allPossibleArmies.filter(a => a.id === selectedArmyListId);
@@ -110,7 +106,7 @@ const ForcesPage: React.FC = () => {
     return Array.from(keywordsSet).sort();
   }, [allPossibleArmies, selectedArmyListId]);
 
-  const handleKeywordFilterChange = (keyword: string) => {
+  const handleKeywordFilterChange = (keyword) => {
     setSelectedKeywordFilters(prev =>
       prev.includes(keyword)
         ? prev.filter(kw => kw !== keyword)
@@ -119,7 +115,7 @@ const ForcesPage: React.FC = () => {
   };
 
   const unitsToDisplay = useMemo(() => {
-    let unitsFromSource: Unit[] = [];
+    let unitsFromSource = [];
 
     if (selectedArmyListId === ALL_FACTIONS_ID) {
       unitsFromSource = allPossibleArmies.flatMap(army => army.units);
@@ -162,7 +158,7 @@ const ForcesPage: React.FC = () => {
     return currentSelectedArmyDetails?.name || null;
   }, [selectedArmyListId, currentSelectedArmyDetails]);
 
-  const handleAddUnitRequest = useCallback((unit: Unit, quantity: number) => {
+  const handleAddUnitRequest = useCallback((unit, quantity) => {
     if (quantity <= 0) return;
     if (unit.options && unit.options.length > 0) {
       setUnitToConfigure(unit);
@@ -179,7 +175,7 @@ const ForcesPage: React.FC = () => {
               : item
           );
         } else {
-          const newGroup: ArmyItemGroup = {
+          const newGroup = {
             itemGroupId,
             unit,
             selectedOptions: [],
@@ -193,7 +189,7 @@ const ForcesPage: React.FC = () => {
     }
   }, []);
   
-  const handleAddConfiguredUnit = useCallback((unit: Unit, selectedOptions: UnitOption[], pointsPerModel: number, quantity: number) => {
+  const handleAddConfiguredUnit = useCallback((unit, selectedOptions, pointsPerModel, quantity) => {
     if (quantity <= 0) return;
     const itemGroupId = generateItemGroupId(unit.id, selectedOptions);
     setCurrentArmyBuild(prevBuild => {
@@ -205,7 +201,7 @@ const ForcesPage: React.FC = () => {
             : item
         );
       } else {
-        const newGroup: ArmyItemGroup = {
+        const newGroup = {
           itemGroupId,
           unit,
           selectedOptions,
@@ -220,7 +216,7 @@ const ForcesPage: React.FC = () => {
     setUnitToConfigure(null);
   }, []);
 
-  const handleRemoveItemGroup = useCallback((itemGroupId: string) => {
+  const handleRemoveItemGroup = useCallback((itemGroupId) => {
     setCurrentArmyBuild(prevBuild => prevBuild.filter(item => item.itemGroupId !== itemGroupId));
   }, []);
 
@@ -228,7 +224,7 @@ const ForcesPage: React.FC = () => {
     setCurrentArmyBuild([]);
   }, []);
 
-  const handleViewUnitDetails = useCallback((itemGroupId: string) => {
+  const handleViewUnitDetails = useCallback((itemGroupId) => {
     const group = currentArmyBuild.find(g => g.itemGroupId === itemGroupId);
     if (group) {
       setDetailedUnitGroup(group);
@@ -437,7 +433,7 @@ const ForcesPage: React.FC = () => {
                 <select
                   id="unit-type-filter"
                   value={selectedUnitTypeFilter}
-                  onChange={(e) => setSelectedUnitTypeFilter(e.target.value as UnitType | 'All')}
+                  onChange={(e) => setSelectedUnitTypeFilter(e.target.value)}
                   className="w-full p-3 bg-stone-50 border border-amber-700 rounded-md text-stone-800 focus:ring-amber-600 focus:border-amber-600"
                   disabled={!selectedArmyListId && allPossibleArmies.length > 0}
                 >

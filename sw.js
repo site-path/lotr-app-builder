@@ -4,7 +4,7 @@ const REPO_PATH = '/lotr-army-builder'; // Define repository path
 const urlsToCache = [
   REPO_PATH + '/',
   REPO_PATH + '/index.html',
-  REPO_PATH + '/index.tsx',
+  REPO_PATH + '/index.js',
   REPO_PATH + '/manifest.json',
   REPO_PATH + '/icons/icon-192x192.png',
   REPO_PATH + '/icons/icon-512x512.png',

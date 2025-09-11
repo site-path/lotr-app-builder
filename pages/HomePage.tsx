@@ -1,14 +1,13 @@
 import React, { useMemo } from 'react';
 import { Link } from 'react-router-dom';
-import { FORCES_OF_GOOD_DATA } from '../data/lotrData';
-import { FORCES_OF_EVIL_DATA } from '../data/lotrData';
-import { Army } from '../types';
+import { FORCES_OF_GOOD_DATA } from '../data/lotrData.js';
+import { FORCES_OF_EVIL_DATA } from '../data/lotrData.js';
 
-const HomePage: React.FC = () => {
+const HomePage = () => {
 
   const totalProfiles = useMemo(() => {
-    const allArmies: Army[] = [...FORCES_OF_GOOD_DATA, ...FORCES_OF_EVIL_DATA];
-    const uniqueUnitIds = new Set<string>();
+    const allArmies = [...FORCES_OF_GOOD_DATA, ...FORCES_OF_EVIL_DATA];
+    const uniqueUnitIds = new Set();
     allArmies.forEach(army => {
       army.units.forEach(unit => {
         uniqueUnitIds.add(unit.id);

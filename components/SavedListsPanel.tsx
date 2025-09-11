@@ -1,15 +1,6 @@
 import React from 'react';
-import { SavedList } from '../types';
 
-interface SavedListsPanelProps {
-  isOpen: boolean;
-  onClose: () => void;
-  savedLists: SavedList[];
-  onLoadList: (list: SavedList) => void;
-  onDeleteList: (timestamp: number) => void;
-}
-
-const SavedListsPanel: React.FC<SavedListsPanelProps> = ({ isOpen, onClose, savedLists, onLoadList, onDeleteList }) => {
+const SavedListsPanel = ({ isOpen, onClose, savedLists, onLoadList, onDeleteList }) => {
   if (!isOpen) return null;
 
   return (

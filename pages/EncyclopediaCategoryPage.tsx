@@ -1,10 +1,9 @@
 import React, { useState, useMemo } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { encyclopediaData } from '../data/encyclopediaData';
-import { EncyclopediaItem } from '../types';
+import { encyclopediaData } from '../data/encyclopediaData.js';
 
-const EncyclopediaCategoryPage: React.FC = () => {
-  const { category } = useParams<{ category: string }>();
+const EncyclopediaCategoryPage = () => {
+  const { category } = useParams();
   const [searchTerm, setSearchTerm] = useState('');
 
   const { title, data } = useMemo(() => {
@@ -29,7 +28,7 @@ const EncyclopediaCategoryPage: React.FC = () => {
     );
   }, [data, searchTerm]);
 
-  const getLabelForType = (category: string | undefined): string => {
+  const getLabelForType = (category) => {
     switch (category) {
       case 'magical-powers': return 'Durata: ';
       case 'special-rules': return 'Tipo: ';

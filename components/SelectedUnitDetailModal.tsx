@@ -1,13 +1,6 @@
 import React from 'react';
-import { ArmyItemGroup, UnitStats, MagicalPower } from '../types'; // Changed SelectedUnit to ArmyItemGroup
 
-interface SelectedUnitDetailModalProps {
-  isOpen: boolean;
-  onClose: () => void;
-  armyItemGroup: ArmyItemGroup | null; // Changed prop name and type
-}
-
-const StatDisplay: React.FC<{ label: string; value?: string | number }> = ({ label, value }) => {
+const StatDisplay = ({ label, value }) => {
   if (value === undefined || value === null || value === '') return null;
   return (
     <span className="text-sm mr-3">
@@ -16,7 +9,7 @@ const StatDisplay: React.FC<{ label: string; value?: string | number }> = ({ lab
   );
 };
 
-const renderFullStats = (stats?: UnitStats) => {
+const renderFullStats = (stats) => {
   if (!stats) return <p className="text-stone-500 italic">No base stats defined.</p>;
   const { mv, f, s, d, a, w, c, i, might, will, fate } = stats;
   const statItems = [
@@ -35,7 +28,7 @@ const renderFullStats = (stats?: UnitStats) => {
   );
 };
 
-const DetailSection: React.FC<{ title: string; children: React.ReactNode; condition?: boolean }> = ({ title, children, condition = true }) => {
+const DetailSection = ({ title, children, condition = true }) => {
   if (!condition) return null;
   return (
     <div className="mb-3">
@@ -45,13 +38,13 @@ const DetailSection: React.FC<{ title: string; children: React.ReactNode; condit
   );
 };
 
-const renderSpecialRule = (rule: string, index: number) => {
+const renderSpecialRule = (rule, index) => {
     const activeMarker = " ACTIVE - ";
     const passiveMarker = " PASSIVE - ";
 
     let namePart = rule;
     let descriptionPart = "";
-    let type: 'ACTIVE' | 'PASSIVE' | null = null;
+    let type = null;
 
     if (rule.includes(activeMarker)) {
         [namePart, descriptionPart] = rule.split(activeMarker, 2);
@@ -71,7 +64,7 @@ const renderSpecialRule = (rule: string, index: number) => {
 };
 
 
-const SelectedUnitDetailModal: React.FC<SelectedUnitDetailModalProps> = ({ isOpen, onClose, armyItemGroup }) => {
+const SelectedUnitDetailModal = ({ isOpen, onClose, armyItemGroup }) => {
   if (!isOpen || !armyItemGroup) return null;
 
   const unit = armyItemGroup.unit; // Base unit details
@@ -125,7 +118,7 @@ const SelectedUnitDetailModal: React.FC<SelectedUnitDetailModalProps> = ({ isOpe
 
             <DetailSection title="Magical Powers" condition={!!unit.magicalPowers && unit.magicalPowers.length > 0}>
               <ul className="list-disc list-inside text-sm space-y-1">
-                {unit.magicalPowers?.map((power: MagicalPower) => (
+                {unit.magicalPowers?.map((power) => (
                   <li key={power.name} className="text-stone-700">
                     <strong className="text-amber-700">{power.name}</strong> (Range: {power.range}, Casting: {power.casting})
                   </li>

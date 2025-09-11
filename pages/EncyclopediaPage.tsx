@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const EncyclopediaPage: React.FC = () => {
+const EncyclopediaPage = () => {
   return (
     <div className="bg-stone-100/95 p-6 sm:p-8 rounded-lg shadow-xl border border-stone-400">
       <h1 className="text-4xl md:text-5xl font-bold text-amber-900 mb-8 font-['Cinzel',serif] text-center [text-shadow:_1px_1px_2px_rgba(109,40,22,0.4)]">

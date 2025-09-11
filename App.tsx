@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { HashRouter, Routes, Route, Link, NavLink } from 'react-router-dom';
-import HomePage from './pages/HomePage';
-import ForcesPage from './pages/ForcesPage';
-import EncyclopediaPage from './pages/EncyclopediaPage';
-import EncyclopediaCategoryPage from './pages/EncyclopediaCategoryPage';
+import HomePage from './pages/HomePage.js';
+import ForcesPage from './pages/ForcesPage.js';
+import EncyclopediaPage from './pages/EncyclopediaPage.js';
+import EncyclopediaCategoryPage from './pages/EncyclopediaCategoryPage.js';
 
 
-const Logo: React.FC = () => (
+const Logo = () => (
     <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-3 inline-block">
         <defs>
             <radialGradient id="ringGradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
@@ -23,7 +23,7 @@ const Logo: React.FC = () => (
     </svg>
 );
 
-const NavItem: React.FC<{ to: string; children: React.ReactNode }> = ({ to, children }) => (
+const NavItem = ({ to, children }) => (
   <NavLink
     to={to}
     className={({ isActive }) =>
@@ -38,14 +38,14 @@ const NavItem: React.FC<{ to: string; children: React.ReactNode }> = ({ to, chil
   </NavLink>
 );
 
-const App: React.FC = () => {
+const App = () => {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
   // State for PWA install prompt
-  const [installPrompt, setInstallPrompt] = useState<any>(null);
+  const [installPrompt, setInstallPrompt] = useState(null);
   const [isInstallable, setIsInstallable] = useState(false);
 
   useEffect(() => {
-    const handler = (e: Event) => {
+    const handler = (e) => {
       // Prevent the mini-infobar from appearing on mobile
       e.preventDefault();
       // Stash the event so it can be triggered later.

@@ -1,19 +1,9 @@
-
 import React, { useState, useEffect, useCallback } from 'react';
-import { Unit, UnitOption } from '../types';
 
-interface UnitOptionsModalProps {
-  isOpen: boolean;
-  onClose: () => void;
-  unit: Unit;
-  onAddConfiguredUnit: (unit: Unit, selectedOptions: UnitOption[], totalPoints: number, quantity: number) => void;
-  initialQuantity?: number;
-}
-
-const UnitOptionsModal: React.FC<UnitOptionsModalProps> = ({ isOpen, onClose, unit, onAddConfiguredUnit, initialQuantity = 0 }) => {
-  const [selectedOptions, setSelectedOptions] = useState<UnitOption[]>([]);
-  const [currentTotalPoints, setCurrentTotalPoints] = useState<number>(unit.points);
-  const [quantity, setQuantity] = useState<number>(initialQuantity > 0 ? initialQuantity : 1);
+const UnitOptionsModal = ({ isOpen, onClose, unit, onAddConfiguredUnit, initialQuantity = 0 }) => {
+  const [selectedOptions, setSelectedOptions] = useState([]);
+  const [currentTotalPoints, setCurrentTotalPoints] = useState(unit.points);
+  const [quantity, setQuantity] = useState(initialQuantity > 0 ? initialQuantity : 1);
 
   useEffect(() => {
     if (isOpen) {
@@ -33,7 +23,7 @@ const UnitOptionsModal: React.FC<UnitOptionsModalProps> = ({ isOpen, onClose, un
     setCurrentTotalPoints(points);
   }, [selectedOptions, unit.points]);
 
-  const handleOptionToggle = (option: UnitOption) => {
+  const handleOptionToggle = (option) => {
     setSelectedOptions(prev => {
       if (prev.find(o => o.id === option.id)) {
         return prev.filter(o => o.id !== option.id);
@@ -43,7 +33,7 @@ const UnitOptionsModal: React.FC<UnitOptionsModalProps> = ({ isOpen, onClose, un
     });
   };
 
-  const handleQuantityChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleQuantityChange = (event) => {
     const value = parseInt(event.target.value, 10);
      if (!isNaN(value) && value >= 0) { // Allow 0, but button will be disabled
       setQuantity(value);

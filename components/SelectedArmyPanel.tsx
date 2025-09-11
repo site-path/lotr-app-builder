@@ -1,28 +1,6 @@
 import React from 'react';
-import { ArmyItemGroup, UnitStats, UnitOption } from '../types';
 
-interface SelectedArmyPanelProps {
-  currentArmyBuild: ArmyItemGroup[]; 
-  totalPoints: number;
-  onRemoveItemGroup: (itemGroupId: string) => void;
-  onClearArmy: () => void;
-  onViewUnitDetails: (itemGroupId: string) => void; 
-  totalModels: number;
-  totalHeroes: number;
-  totalWarriors: number;
-  selectedArmyName: string | null;
-  bowCount: number;
-  bowPercentage: number;
-  armyBreakPoint: number;
-  totalMight: number;
-  totalWill: number;
-  totalFate: number;
-  bowLimitWarning: string | null;
-  noHeroWarning: string | null;
-  warriorLimitInfo: string | null;
-}
-
-const StatDisplay: React.FC<{ label: string; value?: string | number }> = ({ label, value }) => {
+const StatDisplay = ({ label, value }) => {
   if (value === undefined || value === null || value === '') return null;
   return (
     <span className="text-xs mr-2">
@@ -31,7 +9,7 @@ const StatDisplay: React.FC<{ label: string; value?: string | number }> = ({ lab
   );
 };
 
-const renderStatsPreview = (stats?: UnitStats) => {
+const renderStatsPreview = (stats) => {
   if (!stats) return null;
   const { mv, f, s, d, a, w, c, i, might, will, fate } = stats;
   const statItems = [
@@ -50,7 +28,7 @@ const renderStatsPreview = (stats?: UnitStats) => {
   );
 };
 
-const SelectedArmyPanel: React.FC<SelectedArmyPanelProps> = ({ 
+const SelectedArmyPanel = ({ 
   currentArmyBuild, 
   totalPoints, 
   onRemoveItemGroup,
@@ -74,7 +52,7 @@ const SelectedArmyPanel: React.FC<SelectedArmyPanelProps> = ({
     const handleExportList = () => {
     const safeArmyName = selectedArmyName ? selectedArmyName.replace(/[^a-zA-Z0-9 ]/g, "") : 'Custom Army';
     
-    const formatSpecialRule = (rule: string): string => {
+    const formatSpecialRule = (rule) => {
         const activeMarker = " - Active - ";
         const passiveMarker = " - Passive - ";
         let marker = "";

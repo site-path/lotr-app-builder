@@ -1,6 +1,4 @@
-import { EncyclopediaItem } from '../types';
-
-export const encyclopediaData: EncyclopediaItem[] = [
+export const encyclopediaData = [
   // Magical Powers
   {
     name: 'Commanding Aura',
@@ -403,7 +401,7 @@ export const encyclopediaData: EncyclopediaItem[] = [
     name: 'Mountain Dweller',
     category: 'Special Rule',
     type: 'Active',
-    description: `A model with this special rule can Move through areas of rocky terrain classified as Difficult Terrain as if it were Open Terrain. If a Cavalry model has this special rule, but its Mount does not, then this rule does not apply to the Mount. If a Mount has this special rule, it will still maintain its Cavalry Charge bonuses when it Charges, even if the rider does not have this special rule. Additionally, a model with this special rule can re-roll any Jump, Leap or Climb test.`
+    description: `A model with this special rule can move through areas of rocky terrain classified as Difficult Terrain as if it were Open Terrain. If a Cavalry model has this special rule, but its Mount does not, then this rule does not apply to the Mount. If a Mount has this special rule, it will still maintain its Cavalry Charge bonuses when it Charges, even if the rider does not have this special rule. Additionally, a model with this special rule can re-roll any Jump, Leap or Climb test.`
   },
   {
     name: 'Poisoned Attacks (X)',

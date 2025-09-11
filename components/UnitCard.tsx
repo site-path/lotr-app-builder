@@ -1,16 +1,9 @@
-
 import React, { useState } from 'react';
-import { Unit } from '../types';
 
-interface UnitCardProps {
-  unit: Unit;
-  onAddUnit: (unit: Unit, quantity: number) => void;
-}
+const UnitCard = ({ unit, onAddUnit }) => {
+  const [quantity, setQuantity] = useState(0); // Default to 0
 
-const UnitCard: React.FC<UnitCardProps> = ({ unit, onAddUnit }) => {
-  const [quantity, setQuantity] = useState<number>(0); // Default to 0
-
-  const handleQuantityChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleQuantityChange = (event) => {
     const value = parseInt(event.target.value, 10);
     if (!isNaN(value) && value >= 0) { // Allow 0
       setQuantity(value);

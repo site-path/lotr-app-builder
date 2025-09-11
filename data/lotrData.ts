@@ -1,38 +1,36 @@
-import { Army } from '../types';
-
 // Forces of Good
-import { arnor } from './good/arnor';
-import { dale } from './good/dale';
-import { deadOfDunharrow } from './good/deadOfDunharrow';
-import { dwarves } from './good/dwarves';
-import { fangorn } from './good/fangorn';
-import { fellowship } from './good/fellowship';
-import { fiefdoms } from './good/fiefdoms';
-import { lothlorien } from './good/lothlorien';
-import { minasTirith } from './good/minasTirith';
-import { numenor } from './good/numenor';
-import { rivendell } from './good/rivendell';
-import { rohan } from './good/rohan';
-import { shire } from './good/shire';
-import { thranduilsHalls } from './good/thranduilsHalls';
-import { wanderers } from './good/wanderers';
-import { whiteCouncil } from './good/whiteCouncil';
+import { arnor } from './good/arnor.js';
+import { dale } from './good/dale.js';
+import { deadOfDunharrow } from './good/deadOfDunharrow.js';
+import { dwarves } from './good/dwarves.js';
+import { fangorn } from './good/fangorn.js';
+import { fellowship } from './good/fellowship.js';
+import { fiefdoms } from './good/fiefdoms.js';
+import { lothlorien } from './good/lothlorien.js';
+import { minasTirith } from './good/minasTirith.js';
+import { numenor } from './good/numenor.js';
+import { rivendell } from './good/rivendell.js';
+import { rohan } from './good/rohan.js';
+import { shire } from './good/shire.js';
+import { thranduilsHalls } from './good/thranduilsHalls.js';
+import { wanderers } from './good/wanderers.js';
+import { whiteCouncil } from './good/whiteCouncil.js';
 
 // Forces of Evil
-import { angmar } from './evil/angmar';
-import { dolGuldur } from './evil/dolGuldur';
-import { dunland } from './evil/dunland';
-import { fallenRealms } from './evil/fallenRealms';
-import { gundabad } from './evil/gundabad';
-import { hillTribes } from './evil/hillTribes';
-import { isengard } from './evil/isengard';
-import { mistyMountains } from './evil/mistyMountains';
-import { mordor } from './evil/mordor';
-import { moria } from './evil/moria';
-import { trolls } from './evil/trolls';
+import { angmar } from './evil/angmar.js';
+import { dolGuldur } from './evil/dolGuldur.js';
+import { dunland } from './evil/dunland.js';
+import { fallenRealms } from './evil/fallenRealms.js';
+import { gundabad } from './evil/gundabad.js';
+import { hillTribes } from './evil/hillTribes.js';
+import { isengard } from './evil/isengard.js';
+import { mistyMountains } from './evil/mistyMountains.js';
+import { mordor } from './evil/mordor.js';
+import { moria } from './evil/moria.js';
+import { trolls } from './evil/trolls.js';
 
 
-export const FORCES_OF_GOOD_DATA: Army[] = [
+export const FORCES_OF_GOOD_DATA = [
     arnor,
     dale,
     deadOfDunharrow,
@@ -51,7 +49,7 @@ export const FORCES_OF_GOOD_DATA: Army[] = [
     whiteCouncil,
 ];
 
-export const FORCES_OF_EVIL_DATA: Army[] = [
+export const FORCES_OF_EVIL_DATA = [
     angmar,
     dolGuldur,
     dunland,
