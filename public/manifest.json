@@ -1,0 +1,25 @@
+{
+  "name": "MESBG BUILDER",
+  "short_name": "MESBG",
+  "description": "A web application to build armies for the Middle-earth Strategy Battle Game, inspired by Lord of the Rings. Choose between Forces of Good and Evil, select armies, and add units with options to build your force.",
+  "start_url": "/lotr-army-builder/",
+  "scope": "/lotr-army-builder/",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#1e293b",
+  "orientation": "any",
+  "icons": [
+    {
+      "src": "/lotr-army-builder/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/lotr-army-builder/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
