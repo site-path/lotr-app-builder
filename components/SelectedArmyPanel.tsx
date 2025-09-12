@@ -358,28 +358,26 @@ const SelectedArmyPanel = ({
       {currentArmyBuild.length > 0 && (
         <div className="mb-4">
             <div className="grid grid-cols-2 gap-2 mb-3">
-                <button
-                onClick={onClearArmy}
-                className="bg-stone-300 hover:bg-stone-400 text-stone-800 font-semibold py-2 px-4 rounded-md transition-colors text-sm"
-                aria-label="Clear entire army list"
-                >
-                Clear Army
+                 <button
+                    onClick={handleExportList}
+                    className="bg-stone-300 hover:bg-stone-400 text-amber-800 font-semibold py-2 px-4 rounded-md transition-colors text-sm"
+                    aria-label="Export or Print army list"
+                    >
+                    Export/Print
                 </button>
                 <button
-                onClick={handleExportList}
-                className="bg-stone-300 hover:bg-stone-400 text-amber-800 font-semibold py-2 px-4 rounded-md transition-colors text-sm"
-                aria-label="Export or Print army list"
-                >
-                Export/Print
+                    onClick={onClearArmy}
+                    className="bg-red-200 hover:bg-red-300 text-red-800 font-semibold py-2 px-4 rounded-md transition-colors text-sm"
+                    aria-label="Clear entire army list"
+                    >
+                    Clear Army
                 </button>
             </div>
         </div>
       )}
-
+      
       {currentArmyBuild.length === 0 ? (
-         <>
           <p className="text-stone-600 italic mb-4">Your army is empty. Add some units to get started!</p>
-         </>
       ) : (
         <div className="space-y-3 max-h-[calc(100vh-420px)] overflow-y-auto pr-2">
           {currentArmyBuild.map((group) => (

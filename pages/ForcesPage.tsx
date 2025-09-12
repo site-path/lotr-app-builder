@@ -1,3 +1,5 @@
+
+
 import React, { useState, useMemo, useCallback, useEffect, useRef } from 'react';
 import { useParams } from 'react-router-dom';
 import { FORCES_OF_GOOD_DATA } from '../data/lotrData.js';
@@ -6,7 +8,6 @@ import UnitCard from '../components/UnitCard.js';
 import SelectedArmyPanel from '../components/SelectedArmyPanel.js';
 import UnitOptionsModal from '../components/UnitOptionsModal.js';
 import SelectedUnitDetailModal from '../components/SelectedUnitDetailModal.js';
-// Fix: Import enums from the types file to ensure strong typing and remove local definitions.
 import { ArmyAlignment, UnitType } from '../types.js';
 
 const ALL_FACTIONS_ID = '__ALL__';
@@ -45,7 +46,7 @@ const ForcesPage = () => {
     if (alignment === ArmyAlignment.EVIL) return FORCES_OF_EVIL_DATA;
     return [];
   }, [alignment]);
-  
+
   const [selectedArmyListId, setSelectedArmyListId] = useState(
     allPossibleArmies.length > 0 ? ALL_FACTIONS_ID : null
   );
@@ -155,7 +156,7 @@ const ForcesPage = () => {
   
   const factionDisplayName = useMemo(() => {
     if (selectedArmyListId === ALL_FACTIONS_ID) return 'All Factions';
-    return currentSelectedArmyDetails?.name || null;
+    return currentSelectedArmyDetails?.name || 'Custom Army';
   }, [selectedArmyListId, currentSelectedArmyDetails]);
 
   const handleAddUnitRequest = useCallback((unit, quantity) => {
@@ -237,6 +238,9 @@ const ForcesPage = () => {
     setDetailedUnitGroup(null);
   }, []);
 
+  const totalPoints = useMemo(() => {
+    return currentArmyBuild.reduce((sum, group) => sum + group.totalPoints, 0);
+  }, [currentArmyBuild]);
 
   const sortedArmyBuild = useMemo(() => {
     return [...currentArmyBuild].sort((a, b) => {
@@ -247,10 +251,6 @@ const ForcesPage = () => {
       }
       return comparison; 
     });
-  }, [currentArmyBuild]);
-
-  const totalPoints = useMemo(() => {
-    return currentArmyBuild.reduce((sum, group) => sum + group.totalPoints, 0);
   }, [currentArmyBuild]);
 
   const totalModels = useMemo(() => {
@@ -438,8 +438,9 @@ const ForcesPage = () => {
                   disabled={!selectedArmyListId && allPossibleArmies.length > 0}
                 >
                   <option value="All">All Types</option>
-                  {Object.values(UnitType).map(type => (
-                    <option key={type} value={type}>{type}</option>
+                  {/* FIX: Use Object.entries for robust enum iteration and type safety. */}
+                  {Object.entries(UnitType).map(([key, value]) => (
+                    <option key={key} value={value}>{value}</option>
                   ))}
                 </select>
               </div>

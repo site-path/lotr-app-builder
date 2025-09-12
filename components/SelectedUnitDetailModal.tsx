@@ -39,8 +39,8 @@ const DetailSection = ({ title, children, condition = true }) => {
 };
 
 const renderSpecialRule = (rule, index) => {
-    const activeMarker = " ACTIVE - ";
-    const passiveMarker = " PASSIVE - ";
+    const activeMarker = " - Active - ";
+    const passiveMarker = " - Passive - ";
 
     let namePart = rule;
     let descriptionPart = "";

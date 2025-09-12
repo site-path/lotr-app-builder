@@ -1,5 +1,6 @@
 
 
+
 import { Army, ArmyAlignment, Unit, UnitType } from '../../types';
 
 export const minasTirith: Army = {
@@ -131,7 +132,6 @@ export const minasTirith: Army = {
         name: 'Gondor Battlecry Trebuchet',
         type: UnitType.SIEGE_ENGINE,
         points: 100,
-        // FIX: Corrected siege engine stats which were defined outside the 'stats' property.
         stats: { range: '12"-96"', s: '10', d: '10', w: '3' },
         // FIX: Added missing 'wargear' property to satisfy the Unit interface.
         wargear: [],
@@ -144,7 +144,6 @@ export const minasTirith: Army = {
         name: 'Gondor Avenger Bolt Thrower',
         type: UnitType.SIEGE_ENGINE,
         points: 60,
-        // FIX: Corrected siege engine stats which were defined outside the 'stats' property.
         stats: { range: '48"', s: '7', d: '7', w: '2' },
         // FIX: Added missing 'wargear' property to satisfy the Unit interface.
         wargear: [],

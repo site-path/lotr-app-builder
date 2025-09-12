@@ -1,23 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { UnitType } from '../types.js';
 
 const UnitCard = ({ unit, onAddUnit }) => {
-  const [quantity, setQuantity] = useState(0); // Default to 0
-
-  const handleQuantityChange = (event) => {
-    const value = parseInt(event.target.value, 10);
-    if (!isNaN(value) && value >= 0) { // Allow 0
-      setQuantity(value);
-    } else if (event.target.value === '') {
-      setQuantity(0); 
-    }
-  };
-
-  const handleAddClick = () => {
-    if (quantity > 0) {
-      onAddUnit(unit, quantity);
-      setQuantity(0); // Reset quantity after adding/configuring
-    }
-  };
+  const isBulkAddable = unit.type === UnitType.WARRIOR;
+  const quantities = isBulkAddable ? [1, 3, 6, 10] : [1];
+  const buttonText = unit.options && unit.options.length > 0 ? 'Configure' : 'Add';
 
   return (
     <div className="bg-white p-4 rounded-lg shadow-lg border border-stone-400 hover:border-amber-700 transition-all duration-200 flex flex-col justify-between">
@@ -35,27 +22,18 @@ const UnitCard = ({ unit, onAddUnit }) => {
         )}
       </div>
 
-      <div className="mt-3 flex items-center gap-2">
-        <input
-          type="number"
-          value={quantity}
-          onChange={handleQuantityChange}
-          min="0" // Allow 0
-          className="w-16 p-2 bg-stone-100 border border-amber-700 rounded-md text-stone-800 text-sm focus:ring-amber-600 focus:border-amber-600"
-          aria-label={`Quantity for ${unit.name}`}
-        />
-        <button
-          onClick={handleAddClick}
-          disabled={quantity === 0} // Disable if quantity is 0
-          className={`flex-grow font-semibold py-2 px-3 rounded-md text-sm transition-colors ${
-            quantity === 0 
-            ? 'bg-stone-300 text-stone-500 cursor-not-allowed' 
-            : 'bg-amber-800 hover:bg-amber-900 text-stone-100'
-          }`}
-          aria-label={`Add ${quantity} ${unit.name} to army`}
-        >
-          {unit.options && unit.options.length > 0 ? 'Configure & Add' : 'Add to Army'}
-        </button>
+      <div className="mt-3 flex items-center gap-2 flex-wrap justify-end">
+        <span className="text-sm font-semibold text-stone-600 mr-auto">{buttonText}:</span>
+        {quantities.map(qty => (
+          <button
+            key={qty}
+            onClick={() => onAddUnit(unit, qty)}
+            className="bg-amber-800 hover:bg-amber-900 text-stone-100 font-bold py-1 px-3 rounded-md text-sm transition-transform transform hover:scale-105 shadow"
+            aria-label={`Add ${qty} ${unit.name} to army`}
+          >
+            +{qty}
+          </button>
+        ))}
       </div>
     </div>
   );

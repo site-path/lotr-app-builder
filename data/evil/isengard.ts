@@ -226,6 +226,8 @@ export const isengard: Army = {
       type: UnitType.SIEGE_ENGINE,
       points: 75,
       stats: { range: '12"-60"', s: '9', d: '10', w: '4' },
+      // FIX: Added missing 'wargear' property to satisfy the Unit interface.
+      wargear: [],
       specialRules: ["Crew - three Uruk-hai Siege Crew, one of which is the Siege Veteran.", "Piercing Shot - Active - A model hit will be flung back D6\" if it has a Strength of 6 or lower, and D6\" if it has a Strength of 7 or higher. If the flung model hits an enemy model, both suffer a Strength 6 hit. The flung model stops if it hits impassable terrain or a model with Strength 6 or higher. The flung model stops if it hits a friendly model, in which case the friendly model is not harmed.", "Grapnel Launcher - Active - During the Move phase, if the Siege Crew are not in base contact with any enemy models, they may choose to fire the Grapnel Launcher at an enemy model. If they do, they may not move for the rest of that turn. The Siege Crew may choose to re-roll a D6 when rolling To Wound, or they may choose to use a ladder onto enemy battlements in a siege game. Choose a point on the battlement and place a ladder on the top of the battlement. The other end of the ladder may be placed on the ground and will count as charging if there is no room. The carrying the ladder can be placed at the top and will count as charging if there is no room to do so. After this, the Siege Crew may move as normal.", 'Uruk-hai Siege Crew (URUK-HAI | ISENGARD | WARRIOR, INFANTRY | 25MM, Mv 6", Fv 4/4+, Sv 4+, D 5, A 1, W 1, C 7+, I 7+, Siege Veteran has 1 Might, 1 Will, and 1 Fate. Armour, hand weapon)'],
       keywords: ['SIEGE ENGINE'],
     },

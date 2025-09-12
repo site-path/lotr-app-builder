@@ -1,5 +1,6 @@
 
 
+
 import { Army, ArmyAlignment, Unit, UnitType } from '../../types';
 
 export const dwarves: Army = {
@@ -282,7 +283,6 @@ export const dwarves: Army = {
         name: 'Erebor Dwarf Warrior',
         type: UnitType.WARRIOR,
         points: 9,
-        // FIX: Removed duplicate 'd' property from stats object.
         stats: { mv: '5"', f: '4/4+', s: '3', d: '6', a: '1', w: '1', c: '7+', i: '6+' },
         options: [
             { id: 'edw-banner', name: 'Banner', points: 25 },

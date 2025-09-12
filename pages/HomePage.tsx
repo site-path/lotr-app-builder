@@ -44,7 +44,7 @@ const HomePage = () => {
           </div>
         </div>
         
-        <div className="flex justify-center items-center row-start-1 md:row-start-auto">
+        <div className="flex justify-center items-center">
           <div className="text-center bg-white/50 backdrop-blur-sm p-8 rounded-xl shadow-lg border border-stone-300">
             <h2 className="text-lg font-['Cinzel',serif] font-bold text-amber-900 uppercase tracking-widest mb-2">Total Profiles</h2>
             <p className="text-6xl font-bold tracking-tighter text-stone-800">{totalProfiles}</p>

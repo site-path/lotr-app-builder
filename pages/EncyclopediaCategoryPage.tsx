@@ -30,9 +30,9 @@ const EncyclopediaCategoryPage = () => {
 
   const getLabelForType = (category) => {
     switch (category) {
-      case 'magical-powers': return 'Durata: ';
-      case 'special-rules': return 'Tipo: ';
-      case 'heroic-actions': return 'Fase: ';
+      case 'magical-powers': return 'Duration: ';
+      case 'special-rules': return 'Type: ';
+      case 'heroic-actions': return 'Phase: ';
       default: return '';
     }
   }

@@ -102,6 +102,8 @@ export const mordor: Army = {
         type: UnitType.SIEGE_ENGINE,
         points: 150,
         stats: { range: '12"-96"', s: '10', d: '10', w: '4' },
+        // FIX: Added missing 'wargear' property to satisfy the Unit interface.
+        wargear: [],
         options: [
             { id: 'mwc-severed-heads', name: 'Severed Heads', points: 20 },
             { id: 'mwc-flaming-ammunition', name: 'Flaming Ammunition', points: 10 },
@@ -115,6 +117,8 @@ export const mordor: Army = {
         type: UnitType.SIEGE_ENGINE,
         points: 50,
         stats: { range: '6"-48"', s: '8', d: '9', w: '3' },
+        // FIX: Added missing 'wargear' property to satisfy the Unit interface.
+        wargear: [],
         options: [{ id: 'msb-flaming-ammunition', name: 'Flaming Ammunition', points: 10 }],
         specialRules: ["Crew - three Mordor Siege Crew, one of which is the Siege Veteran.", "Piercing Shot - Active - A model hit will be flung back D6\" if it has a Strength of 6 or lower, and D6\" if it has a Strength of 7 or higher. If the flung model hits an enemy model, both suffer a Strength 6 hit. The flung model stops if it hits impassable terrain or a model with higher Defence. If a model is hit by the flung model and it has a higher Defence, both models suffer a Strength 6 hit. The flung model stops if it hits impassable terrain or a model with higher Defence. If a model is hit by the flung model and it has a higher Defence, both models suffer a Strength 6 hit. If the flung model moves over other models, those models are moved the minimum distance to allow the flung model to pass over other models.", 'Mordor Siege Crew (ORC | MORDOR | WARRIOR, INFANTRY | 25MM, Mv 6", Fv 3/4+, Sv 4+, D 4, A 1, W 1, C 8+, I 8+, Armour, hand weapon)'],
         keywords: ['SIEGE ENGINE'],
