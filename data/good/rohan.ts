@@ -66,6 +66,17 @@ export const rohan: Army = {
         keywords: ['MAN', 'ROHAN', 'HERO', 'INFANTRY', 'UNIQUE'],
     },
     {
+      id: 'grimbold-of-grimslade',
+      name: 'Grimbold of Grimslade',
+      type: UnitType.HERO,
+      points: 65,
+      stats: { mv: '6"', f: '5/4+', s: '4', d: '5', a: '2', w: 2, c: '6+', i: '6+', might: 2, will: 1, fate: 1 },
+      wargear: ['Armour', 'Two-handed weapon'],
+      heroicActions: ['Heroic Strength'],
+      specialRules: ["Warrior Upgrade - Warriors of Rohan in Grimbold's Warband may be upgraded to Helmingas for +1 point per model. Helmingas have a Strength of 4, rather than 3.", 'Mighty Blow'],
+      keywords: ['MAN', 'ROHAN', 'HERO', 'INFANTRY', 'UNIQUE'],
+    },
+    {
         id: 'captain-of-rohan',
         name: 'Captain of Rohan',
         type: UnitType.HERO,

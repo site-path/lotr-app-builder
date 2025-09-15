@@ -1,5 +1,3 @@
-
-
 import { Army, ArmyAlignment, Unit, UnitType } from '../../types';
 
 export const dwarves: Army = {
@@ -191,8 +189,8 @@ export const dwarves: Army = {
         keywords: ['DWARF', 'THORIN\'S COMPANY', 'HERO', 'INFANTRY', 'UNIQUE'],
     },
     {
-        id: 'thor-king-under-the-mountain',
-        name: 'Thor, King Under the Mountain',
+        id: 'thror-king-under-the-mountain',
+        name: 'Thrór, King Under the Mountain',
         type: UnitType.HERO,
         points: 130,
         stats: { mv: '5"', f: '6/4+', s: '4', d: '8', a: '3', w: '3', c: '4+', i: '5+', might: 3, will: 2, fate: 1 },
@@ -282,7 +280,6 @@ export const dwarves: Army = {
         name: 'Erebor Dwarf Warrior',
         type: UnitType.WARRIOR,
         points: 9,
-        // FIX: Removed duplicate 'd' property from stats object.
         stats: { mv: '5"', f: '4/4+', s: '3', d: '6', a: '1', w: '1', c: '7+', i: '6+' },
         options: [
             { id: 'edw-banner', name: 'Banner', points: 25 },
@@ -469,7 +466,6 @@ export const dwarves: Army = {
         type: UnitType.SIEGE_ENGINE,
         points: 70,
         stats: { range: '6"-48"', s: '10', d: '10', w: '3' },
-        // FIX: Added missing 'wargear' property to satisfy the Unit interface.
         wargear: [],
         specialRules: ["Crew - two Dwarf Siege Crew, one of which is the Siege Veteran.", "Accurate - Active - a Dwarven Ballista will only Scatter 3\" rather than 6\".", "Swift Reload - Active - A Dwarven Ballista does not have to spend a turn reloading, but if it chooses not to, it may only fire a single shot. If the Siege Veteran is slain, the remaining crew must spend a turn reloading. If they do, they may take a Strength 5 hit. The flung model stops if it hits impassable terrain or a model with higher Defence. If a model is hit by the flung model and it has a higher Defence, both models suffer a Strength 5 hit. The flung model stops if it hits impassable terrain or a model with higher Defence. If a model is hit by the flung model and it has a higher Defence, both models suffer a Strength 5 hit. The flung model stops if it hits impassable terrain or a model with higher Defence. If a model is hit by the flung model and it has a higher Defence, both models suffer a Strength 5 hit. If the flung model moves over other living models, those models are moved the minimum distance to allow the flung model to pass over other models.", 'Dwarf Siege Crew (DWARF | KHAZAD-DUM | WARRIOR, INFANTRY | 25MM, Mv 5", Fv 4/4+, Sv 4+, D 6, A 1, W 1, C 6+, I 6+, Heavy armour, Hand weapon)'],
         keywords: ['SIEGE ENGINE'],
@@ -578,7 +574,6 @@ export const dwarves: Army = {
         type: UnitType.SIEGE_ENGINE,
         points: 130,
         stats: { range: '6"-60"', s: '10', d: '10', w: '3' },
-        // FIX: Added missing 'wargear' property to satisfy the Unit interface.
         wargear: [],
         specialRules: ["Crew - two Iron Hills Siege Crew, one of which is the Siege Veteran.", "Area Effect - Active - After hitting its target, if the target is in base contact with a friendly model, roll a D6. On a 4+, the target and all friendly models within 3\" are hit. If this model has moved, it may not fire. Finally, Iron Hills Ballista will only Scatter 3\" rather than 6\".", "The Old Twirly-Whirlies - Active - This ballista always counts as declaring a Heroic Shoot. Additionally, when making shooting attacks at a target with a Defence of 6 or lower, it cannot be made if they cross that line, or if the target is within 6\" of a friendly model. Finally, if any shooting attacks at Strength 6 or lower cannot be made if they cross that line, or if the target is within 6\" of a friendly model, then the shot is prevented. Finally, if the shot is resolved, roll a D6. On a 3+, the shot is prevented.", 'Iron Hills Siege Crew (DWARF | IRON HILLS | WARRIOR, INFANTRY | 25MM, Mv 5", Fv 4/4+, Sv 4+, D 6, A 1, W 1, C 6+, I 6+, Heavy armour, hand weapon, Siege Veteran has 1 Might, 1 Will, and 1 Fate)'],
         keywords: ['SIEGE ENGINE'],
@@ -604,6 +599,75 @@ export const dwarves: Army = {
         heroicActions: ['Heroic Resolve', 'Heroic Strike', 'Heroic Defence'],
         specialRules: ["Durin's Axe - Active - This is a Unique Master-forged two-handed weapon. Additionally, Balin may re-roll a single D6 when making a Duel roll.", "Longbeard - Active - During the Priority phase, after the roll for Priority has taken place, Balin may spend a Will point to enable his controlling player to re-roll their D6 for Priority.", 'Leader (Khazad Guard)'],
         keywords: ['DWARF', 'KHAZAD-DUM', 'HERO', 'INFANTRY', 'UNIQUE'],
+    },
+    // Fix: Corrected the type of the 'w' (wounds) property from number to string to resolve type error.
+    {
+      id: 'balin-the-dwarf-thorins-company',
+      name: 'Balin the Dwarf',
+      type: UnitType.HERO,
+      points: 40,
+      stats: { mv: '5"', f: '4/4+', s: '4', d: '7', a: '1', w: '2', c: '4+', i: '5+', might: 1, will: 3, fate: 2 },
+      wargear: ['Armour', 'Hand-and-a-half weapon'],
+      heroicActions: ['Heroic Defence'],
+      specialRules: ["Longbeard - Active - After the Priority roll has taken place, Balin may spend a Will point to enable his controlling player to re-roll their D6 in the Priority roll."],
+      keywords: ['DWARF', "THORIN'S COMPANY", 'HERO', 'INFANTRY', 'UNIQUE'],
+    },
+    // Fix: Corrected the type of the 'w' (wounds) property from number to string to resolve type error.
+    {
+      id: 'bilbo-baggins-master-burglar',
+      name: 'Bilbo Baggins, Master Burglar',
+      type: UnitType.HERO,
+      points: 75,
+      stats: { mv: '4"', f: '3/5+', s: '2', d: '2', a: '2', w: '2', c: '4+', i: '4+', might: 3, will: 3, fate: 3 },
+      wargear: ['Hand weapon', 'Mithril Coat', 'Sting'],
+      heroicActions: ['Heroic Resolve', 'Heroic Defence'],
+      specialRules: ["Mithril Coat - Passive - A piece of Mithril armour, additionally Bilbo may re-roll To Wound rolls of a natural 1.", 'Sting - Active - An Elven hand weapon, Bilbo gains +1 Strength when making Strikes.', "The One Ring - Passive - Bilbo is the only model to be able to wear the One Ring. Furthermore, Bilbo is the only model to be able to use any of the rules for the One Ring. Furthermore, Bilbo is the only model to be able to use any of the rules for the One Ring. Bilbo is not removed as a casualty as would usually be the case.", 'Throw Stones (range 8", Strength 1)'],
+      keywords: ['HOBBIT', "THORIN'S COMPANY", 'HERO', 'INFANTRY', 'UNIQUE'],
+    },
+    // Fix: Corrected the type of the 'w' (wounds) property from number to string to resolve type error.
+    {
+      id: 'floi-stonehand',
+      name: 'Floi Stonehand',
+      type: UnitType.HERO,
+      points: 75,
+      stats: { mv: '5"', f: '4/4+', s: '4', d: '6', a: '2', w: '2', c: '5+', i: '4+', might: 1, will: 3, fate: 1 },
+      wargear: ['Heavy armour', 'Hand weapons'],
+      heroicActions: ['Heroic Resolve'],
+      specialRules: ["Loremaster - Active - At any point during his Activation, Floi can spend a Will point to enable all friendly models within 6\" of him to re-roll failed To Wound rolls when making Strikes.", 'The Living Lore - Passive - Whenever a friendly model slays an enemy model within 6" of Floi, they may regain a Will point lost earlier in the battle.'],
+      keywords: ['DWARF', 'KHAZAD-DUM', 'HERO', 'INFANTRY', 'UNIQUE'],
+    },
+    {
+      id: 'drar',
+      name: 'Drár',
+      type: UnitType.HERO,
+      points: 140,
+      stats: { mv: '5"', f: '5/4+', s: '4', d: '7', a: 2, w: '2', c: '5+', i: '5+', might: 2, will: 2, fate: 2 },
+      wargear: ['Heavy Dwarf armour', 'Hand weapon', 'Dwarf bow'],
+      heroicActions: ['Heroic Accuracy'],
+      specialRules: ['Expert Shot', 'Sharpshooter', 'Mountain Dweller'],
+      keywords: ['DWARF', 'IRON HILLS', 'HERO', 'INFANTRY', 'UNIQUE'],
+    },
+    {
+      id: 'murin',
+      name: 'Murin',
+      type: UnitType.HERO,
+      points: 140,
+      stats: { mv: '5"', f: '5/4+', s: '4', d: '8', a: 2, w: '2', c: '5+', i: '5+', might: 2, will: 2, fate: 2 },
+      wargear: ['Heavy armour', 'Shield', 'Kûzdat'],
+      heroicActions: ['Heroic Strike'],
+      specialRules: ['Kûzdat - Active - This is a Unique hand weapon. Murin may re-roll a single D6 when making Strikes against an Orc or Goblin model.', 'Mountain Dweller'],
+      keywords: ['DWARF', 'IRON HILLS', 'HERO', 'INFANTRY', 'UNIQUE'],
+    },
+    {
+      id: 'kings-champion',
+      name: "King's Champion",
+      type: UnitType.HERO,
+      points: 140,
+      stats: { mv: '6"', f: '6/4+', s: '5', d: '7', a: 3, w: '2', c: '5+', i: '6+', might: 2, will: 1, fate: 1 },
+      wargear: ['Dwarf armour', 'Hand weapons'],
+      heroicActions: ['Heroic Strike'],
+      specialRules: ["The Herald's Duty - Active - See below.", "The Life Guard - Passive - The King's Champion His Herald belongs to the same warband, and must always attempt to stay within 3\" of him. The Herald may spend its Fate points on behalf of the King's Champion. Note that they may not be separated by the King's Champion's behalf - only they may spend their Fate Points.", 'Herald (DWARF | KHAZAD-DUM | HERO, INFANTRY | 25MM, Mv 6", Fv 4/4+, Sv 4+, D 7, A 1, W 1, C 6+, I 6+, Dwarf armour, shield, hand weapon, banner)'],
+      keywords: ['DWARF', 'KHAZAD-DUM', 'HERO', 'INFANTRY'],
     },
   ]
 };

@@ -1,5 +1,4 @@
 
-
 import React, { useState, useMemo, useCallback, useEffect, useRef } from 'react';
 import { useParams } from 'react-router-dom';
 import { FORCES_OF_GOOD_DATA } from '../data/lotrData.js';
@@ -438,7 +437,7 @@ const ForcesPage = () => {
                   disabled={!selectedArmyListId && allPossibleArmies.length > 0}
                 >
                   <option value="All">All Types</option>
-                  {/* FIX: Use Object.entries for robust enum iteration and type safety. */}
+                  {/* Fix: Use Object.entries to safely iterate over the UnitType enum, which is safer and provides better type inference for string enums. */}
                   {Object.entries(UnitType).map(([key, value]) => (
                     <option key={key} value={value}>{value}</option>
                   ))}

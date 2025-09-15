@@ -1,3 +1,4 @@
+// Fix: Corrected import path.
 import { Army, ArmyAlignment, Unit, UnitType } from '../../types';
 
 export const moria: Army = {
@@ -5,6 +6,27 @@ export const moria: Army = {
   name: 'Moria',
   alignment: ArmyAlignment.EVIL,
   units: [
+    {
+      id: 'groblog',
+      name: 'Grôblog',
+      type: UnitType.HERO,
+      points: 55,
+      stats: { mv: '5"', f: '4/5+', s: '4', d: '5', a: '2', w: 2, c: '7+', i: '6+', might: 2, will: 2, fate: 3 },
+      wargear: ['Heavy armour', 'Hand weapon', 'Mithril Crown'],
+      heroicActions: ['Heroic Defence', 'Heroic Strike'],
+      specialRules: ["Mithril Crown - Active - This is a unique piece of warggear. Friendly models within 6\" of Grôblog gain the benefit of a special rule.", 'Cave Dweller'],
+      keywords: ['GOBLIN', 'MORIA', 'HERO', 'INFANTRY', 'UNIQUE'],
+    },
+    {
+      id: 'dweller-in-the-dark',
+      name: 'Dweller in the Dark',
+      type: UnitType.HERO,
+      points: 80,
+      stats: { mv: '6"', f: '7/5+', s: '5', d: '5', a: '3', w: 3, c: '3+', i: '8+' },
+      wargear: ['Claws and teeth (hand weapons)'],
+      specialRules: ["Murderous Power - Active - Each time a Dweller in the Dark slays a model, it immediately regains a Wound lost earlier in the battle. These wounds are regained at the end of the Combat. A Dweller in the Dark can only regain Wounds in this way by using a Brutal Power Attack.", 'Dominant (3)', 'Monstrous Charge', 'Magic', 'Terror'],
+      keywords: ['SPIRIT', 'MORIA', 'HERO', 'INFANTRY', 'MONSTER'],
+    },
     {
       id: 'feral-uruk-hai',
       name: 'Feral Uruk-hai',

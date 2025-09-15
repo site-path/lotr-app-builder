@@ -131,5 +131,16 @@ export const dolGuldur: Army = {
             specialRules: ["Morgul Blade - Active - This is a hand weapon. Once per game, a model with this special rule can choose to have their Strikes resolved against a single enemy model, and if they wound, the target is slain. However, this model must still roll to wound as normal. If the model using the Morgul Blade is mounted, they must use the Strength of their mount when determining the Strength of the hit. If the model using the Morgul Blade is mounted, they must use the Strength of their mount when determining the Strength of the hit.", "Automatons - Passive - This model may never provide a Stand Fast to friendly models.", "Will of the Necromancer - Passive - This model can spend its Will points on behalf of a friendly Nazgûl of Dol Guldur.", "Bound in Shadow - Passive - Whilst within 6\" of Sauron or a friendly Nazgûl of Dol Guldur, this model causes Terror. If it is not within 6\" of Sauron or a friendly Nazgûl of Dol Guldur, it is required to take a Courage test at the start of each of its turns. If this test is failed, this model is slain.", 'Harbinger of Evil'],
             keywords: ['ORC', 'DOL GULDUR', 'WARRIOR', 'INFANTRY'],
         },
+        {
+          id: 'the-spider-queen',
+          name: 'The Spider Queen',
+          type: UnitType.HERO,
+          points: 120,
+          stats: { mv: '10"', f: '8/4+', s: '8', d: '6', a: '4', w: 4, c: '6+', i: '6+', might: 3, will: 3, fate: 0 },
+          wargear: ['Large venomous fangs (hand weapons)'],
+          heroicActions: ['Heroic Defence', 'Heroic Strike'],
+          specialRules: ["Progeny - Active - At the beginning of her Activation, the Spider Queen may summon a Broodling to the battlefield. She may not do so if she is Brooding. For each Will Point spent, a single Broodling anywhere on the battlefield may be placed in base contact with the Spider Queen. This Broodling may be placed anywhere on the battlefield, but may be placed within 1\" of an enemy model. They may not be placed in base contact with any enemy models, but may be placed within 1\" of an enemy model. This Broodling may not declare a Heroic Move or Heroic March declared by a friendly model that turn as they have been slain. She may not do so if she is Brooding. If the Spider Queen is Brooding, her Defence value is reduced by 1, and her Attacks value is reduced to 25%.", 'Broodling (SPIDER | DOL GULDUR | WARRIOR, Mv 10", Fv 2, Sv 6+, D 3, A 1, W 1, C 8+, I 8+, WARGEAR: Poisoned claws, TEETH: Movement)', 'Monstrous Charge', 'Stalk Unseen', 'Terror', 'Venom'],
+          keywords: ['SPIDER', 'DOL GULDUR', 'HERO', 'INFANTRY', 'MONSTER', 'BEAST', 'UNIQUE'],
+        }
     ],
 };

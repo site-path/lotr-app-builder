@@ -29,6 +29,20 @@ export const minasTirith: Army = {
         keywords: ['WIZARD', 'GONDOR', 'HERO', 'INFANTRY', 'UNIQUE'],
     },
     {
+      id: 'earnur-last-king-of-gondor',
+      name: 'Earnur, Last King of Gondor',
+      type: UnitType.HERO,
+      points: 110,
+      stats: { mv: '6"', f: '6/4+', s: '4', d: '7', a: '3', w: 3, c: '4+', i: '6+', might: 3, will: 3, fate: 1 },
+      options: [
+        { id: 'earnur-horse-lance', name: 'Armoured horse and lance', points: 30 },
+      ],
+      wargear: ['Heavy armour', 'Hand weapon', 'Shield'],
+      heroicActions: ['Heroic March', 'Heroic Challenge'],
+      specialRules: ["A Fool's Challenge - Active - Earnur must always Charge an enemy model if able to do so, and must always declare a Heroic Challenge under any circumstances. If there are multiple enemy models to charge, the controlling player may choose which he charges. After winning Earnur, he may re-roll one D6 in any Duel roll for the rest of the game. Additionally, he may re-roll To Wound rolls when making Strikes. In a match that of a single enemy he is Engaged in Combat with. Additionally, any enemy model that is within 3\" of Earnur may not benefit from any special rules or Magical Powers."],
+      keywords: ['MAN', 'GONDOR', 'HERO', 'INFANTRY', 'UNIQUE'],
+    },
+    {
         id: 'hurin-the-tall-warden-of-the-keys',
         name: 'Hurin the Tall, Warden of the Keys',
         type: UnitType.HERO,
@@ -39,6 +53,17 @@ export const minasTirith: Army = {
         heroicActions: ['Heroic Resolve', 'Heroic March', 'Heroic Strike'],
         specialRules: ["The Warden's Sword - Active - Master Forged hand-and-a-half weapon.", "In Defence of the King - Active - Whilst Hurin is within 3\" of your General, he may use his Courage or Intelligence value instead of their own. Additionally, once per game, if a friendly Gondor Hero model within 6\" of Hurin is slain, that model may immediately regain a single previously expended point of Will, Fate or a single Wound they have previously lost. Additionally, Hurin may re-roll To Wound rolls of a natural 1 when making Strikes.", "For Gondor! - Active - If a friendly Gondor model cannot uses Victory Points for Wounding or slaying the enemy General, so long as Hurin is alive on the battlefield."],
         keywords: ['MAN', 'GONDOR', 'HERO', 'INFANTRY', 'UNIQUE'],
+    },
+    {
+      id: 'cirion-lieutenant-of-amon-barad',
+      name: 'Cirion, Lieutenant of Amon Barad',
+      type: UnitType.HERO,
+      points: 65,
+      stats: { mv: '6"', f: '5/3+', s: '4', d: '6', a: '2', w: 2, c: '6+', i: '6+', might: 2, will: 2, fate: 1 },
+      wargear: ['Armour', 'Shield', 'Hand weapon'],
+      heroicActions: ['Heroic Resolve', 'Heroic Strike'],
+      specialRules: ["Boldest of the Bold - Active - Cirion gains a bonus of +D3 to his Fight value and the Terror special rule. Additionally, when an enemy model with the Blades of the Dead special rule is within 3\" of Cirion, he gains a bonus of +1 to his Fight value.", 'Woodland Creature'],
+      keywords: ['MAN', 'GONDOR', 'HERO', 'INFANTRY', 'UNIQUE'],
     },
     {
         id: 'beregond-guard-of-the-citadel',
@@ -125,6 +150,20 @@ export const minasTirith: Army = {
         wargear: ['Heavy armour', 'Hand weapon'],
         specialRules: ['Shieldwall'],
         keywords: ['MAN', 'GONDOR', 'WARRIOR', 'INFANTRY'],
+    },
+    {
+      id: 'ranger-of-gondor',
+      name: 'Ranger of Gondor',
+      type: UnitType.WARRIOR,
+      points: 8,
+      stats: { mv: '6"', f: '4/3+', s: '3', d: '4', a: '1', w: 1, c: '7+', i: '6+' },
+      options: [
+        { id: 'rog-war-horn', name: 'War horn', points: 25 },
+        { id: 'rog-spear', name: 'Spear', points: 1 },
+      ],
+      wargear: ['Armour', 'Hand weapon', 'Bow'],
+      specialRules: ['Woodland Creature'],
+      keywords: ['MAN', 'GONDOR', 'WARRIOR', 'INFANTRY'],
     },
     {
         id: 'gondor-battlecry-trebuchet',
@@ -272,7 +311,7 @@ export const minasTirith: Army = {
     {
         id: 'knight-of-the-white-tower',
         name: 'Knight of the White Tower',
-        type: UnitType.WARRIOR,
+        type: UnitType.HERO,
         points: 75,
         stats: { mv: '6"', f: '5/4+', s: '4', d: '6', a: '2', w: '2', c: '5+', i: '5+', might: 2, will: 1, fate: 1 },
         wargear: ['Heavy armour', 'Hand weapon'],
