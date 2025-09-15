@@ -438,9 +438,9 @@ const ForcesPage = () => {
                   disabled={!selectedArmyListId && allPossibleArmies.length > 0}
                 >
                   <option value="All">All Types</option>
-                  {/* Fix: Use Object.values to safely iterate over the UnitType enum values, which is safer and provides better type inference for string enums. */}
-                  {Object.values(UnitType).map((value) => (
-                    <option key={value} value={value}>{value}</option>
+                  {/* Fix: Replaced Object.values with Object.entries to resolve type inference issues. This provides strongly typed key/value pairs for mapping. */}
+                  {Object.entries(UnitType).map(([key, value]) => (
+                    <option key={key} value={value}>{value}</option>
                   ))}
                 </select>
               </div>

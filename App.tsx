@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { HashRouter, Routes, Route, Link, NavLink } from 'react-router-dom';
 import HomePage from './pages/HomePage.js';
@@ -10,9 +11,10 @@ const Logo = () => (
     <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-3 inline-block">
         <defs>
             <radialGradient id="ringGradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
-                <stop offset="60%" style={{stopColor: '#FFD700', stopOpacity: 1}} />
-                <stop offset="95%" style={{stopColor: '#F0C400', stopOpacity: 1}} />
-                <stop offset="100%" style={{stopColor: '#D4AF37', stopOpacity: 1}} />
+                {/* Fix: Refactored SVG <stop> elements to use direct props instead of an inline style object to resolve SVG typing errors. */}
+                <stop offset="60%" stopColor="#FFD700" stopOpacity={1} />
+                <stop offset="95%" stopColor="#F0C400" stopOpacity={1} />
+                <stop offset="100%" stopColor="#D4AF37" stopOpacity={1} />
             </radialGradient>
             <filter id="glow" x="-0.5" y="-0.5" width="2" height="2">
                 <feGaussianBlur in="SourceGraphic" stdDeviation="0.7" />
