@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { encyclopediaData } from '../data/encyclopediaData.js';
+import { encyclopediaData } from '../data/encyclopediaData.ts';
 
 const EncyclopediaCategoryPage = () => {
   const { category } = useParams();

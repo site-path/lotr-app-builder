@@ -1,10 +1,10 @@
 
 import React, { useState, useEffect } from 'react';
 import { HashRouter, Routes, Route, Link, NavLink } from 'react-router-dom';
-import HomePage from './pages/HomePage.js';
-import ForcesPage from './pages/ForcesPage.js';
-import EncyclopediaPage from './pages/EncyclopediaPage.js';
-import EncyclopediaCategoryPage from './pages/EncyclopediaCategoryPage.js';
+import HomePage from './pages/HomePage.tsx';
+import ForcesPage from './pages/ForcesPage.tsx';
+import EncyclopediaPage from './pages/EncyclopediaPage.tsx';
+import EncyclopediaCategoryPage from './pages/EncyclopediaCategoryPage.tsx';
 
 
 const Logo = () => (

@@ -1,33 +1,33 @@
 // Forces of Good
-import { arnor } from './good/arnor.js';
-import { dale } from './good/dale.js';
-import { deadOfDunharrow } from './good/deadOfDunharrow.js';
-import { dwarves } from './good/dwarves.js';
-import { fangorn } from './good/fangorn.js';
-import { fellowship } from './good/fellowship.js';
-import { fiefdoms } from './good/fiefdoms.js';
-import { lothlorien } from './good/lothlorien.js';
-import { minasTirith } from './good/minasTirith.js';
-import { numenor } from './good/numenor.js';
-import { rivendell } from './good/rivendell.js';
-import { rohan } from './good/rohan.js';
-import { shire } from './good/shire.js';
-import { thranduilsHalls } from './good/thranduilsHalls.js';
-import { wanderers } from './good/wanderers.js';
-import { whiteCouncil } from './good/whiteCouncil.js';
+import { arnor } from './good/arnor.ts';
+import { dale } from './good/dale.ts';
+import { deadOfDunharrow } from './good/deadOfDunharrow.ts';
+import { dwarves } from './good/dwarves.ts';
+import { fangorn } from './good/fangorn.ts';
+import { fellowship } from './good/fellowship.ts';
+import { fiefdoms } from './good/fiefdoms.ts';
+import { lothlorien } from './good/lothlorien.ts';
+import { minasTirith } from './good/minasTirith.ts';
+import { numenor } from './good/numenor.ts';
+import { rivendell } from './good/rivendell.ts';
+import { rohan } from './good/rohan.ts';
+import { shire } from './good/shire.ts';
+import { thranduilsHalls } from './good/thranduilsHalls.ts';
+import { wanderers } from './good/wanderers.ts';
+import { whiteCouncil } from './good/whiteCouncil.ts';
 
 // Forces of Evil
-import { angmar } from './evil/angmar.js';
-import { dolGuldur } from './evil/dolGuldur.js';
-import { dunland } from './evil/dunland.js';
-import { fallenRealms } from './evil/fallenRealms.js';
-import { gundabad } from './evil/gundabad.js';
-import { hillTribes } from './evil/hillTribes.js';
-import { isengard } from './evil/isengard.js';
-import { mistyMountains } from './evil/mistyMountains.js';
-import { mordor } from './evil/mordor.js';
-import { moria } from './evil/moria.js';
-import { trolls } from './evil/trolls.js';
+import { angmar } from './evil/angmar.ts';
+import { dolGuldur } from './evil/dolGuldur.ts';
+import { dunland } from './evil/dunland.ts';
+import { fallenRealms } from './evil/fallenRealms.ts';
+import { gundabad } from './evil/gundabad.ts';
+import { hillTribes } from './evil/hillTribes.ts';
+import { isengard } from './evil/isengard.ts';
+import { mistyMountains } from './evil/mistyMountains.ts';
+import { mordor } from './evil/mordor.ts';
+import { moria } from './evil/moria.ts';
+import { trolls } from './evil/trolls.ts';
 
 
 export const FORCES_OF_GOOD_DATA = [

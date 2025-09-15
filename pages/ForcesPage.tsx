@@ -2,13 +2,13 @@
 
 import React, { useState, useMemo, useCallback, useEffect, useRef } from 'react';
 import { useParams } from 'react-router-dom';
-import { FORCES_OF_GOOD_DATA } from '../data/lotrData.js';
-import { FORCES_OF_EVIL_DATA } from '../data/lotrData.js';
-import UnitCard from '../components/UnitCard.js';
-import SelectedArmyPanel from '../components/SelectedArmyPanel.js';
-import UnitOptionsModal from '../components/UnitOptionsModal.js';
-import SelectedUnitDetailModal from '../components/SelectedUnitDetailModal.js';
-import { ArmyAlignment, UnitType } from '../types.js';
+import { FORCES_OF_GOOD_DATA } from '../data/lotrData.ts';
+import { FORCES_OF_EVIL_DATA } from '../data/lotrData.ts';
+import UnitCard from '../components/UnitCard.tsx';
+import SelectedArmyPanel from '../components/SelectedArmyPanel.tsx';
+import UnitOptionsModal from '../components/UnitOptionsModal.tsx';
+import SelectedUnitDetailModal from '../components/SelectedUnitDetailModal.tsx';
+import { ArmyAlignment, UnitType } from '../types.ts';
 
 const ALL_FACTIONS_ID = '__ALL__';
 
@@ -438,9 +438,9 @@ const ForcesPage = () => {
                   disabled={!selectedArmyListId && allPossibleArmies.length > 0}
                 >
                   <option value="All">All Types</option>
-                  {/* Fix: Replaced Object.values with Object.entries to resolve type inference issues. This provides strongly typed key/value pairs for mapping. */}
-                  {Object.entries(UnitType).map(([key, value]) => (
-                    <option key={key} value={value}>{value}</option>
+                  {/* Fix: Reverted from Object.entries to Object.values for iterating over the UnitType enum. Object.values correctly infers the string values of the enum, resolving typing errors for the option's key, value, and children. */}
+                  {Object.values(UnitType).map((value) => (
+                    <option key={value} value={value}>{value}</option>
                   ))}
                 </select>
               </div>

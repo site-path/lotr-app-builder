@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import { Link } from 'react-router-dom';
-import { FORCES_OF_GOOD_DATA } from '../data/lotrData.js';
-import { FORCES_OF_EVIL_DATA } from '../data/lotrData.js';
+import { FORCES_OF_GOOD_DATA } from '../data/lotrData.ts';
+import { FORCES_OF_EVIL_DATA } from '../data/lotrData.ts';
 
 const HomePage = () => {
 

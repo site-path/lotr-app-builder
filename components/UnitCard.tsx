@@ -1,5 +1,5 @@
 import React from 'react';
-import { UnitType } from '../types.js';
+import { UnitType } from '../types.ts';
 
 const UnitCard = ({ unit, onAddUnit }) => {
   const isBulkAddable = unit.type === UnitType.WARRIOR;
